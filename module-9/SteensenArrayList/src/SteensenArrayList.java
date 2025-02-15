@@ -37,10 +37,10 @@ public class SteensenArrayList {
             // Read input as String first
             String userInput = scanner.nextLine();
 
-            // Convert String to Integer (Auto-Unboxing)
-            Integer index = Integer.parseInt(userInput);
+            // Converts a String to Integer 
+            int index = Integer.parseInt(userInput);
 
-            // Validate index range
+            // Validates if index is in bounds
             if (index < 0 || index >= items.size()) {
                 throw new IndexOutOfBoundsException("Out of Bounds");
             } else {
