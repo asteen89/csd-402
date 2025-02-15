@@ -1,21 +1,23 @@
 // Alisa Steensen
 // M9.2
+// https://www.w3schools.com/java/java_files_create.asp
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.*;
-import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CreateFile {
     public static void main(String[] args) {
         Random randomNumber = new Random();
-        Path filePath = Paths.get("data.file");
+        int number;
 
-        // Create a file if it does not exist
+        // Create a file
         try {
-            if (Files.notExists(filePath)) {
-                Files.createFile(filePath);
-                System.out.println("File created: " + filePath);
+            File myFile = new File("data.file");
+            if (myFile.createNewFile()) {
+                System.out.println("File created: " + myFile.getName());
             } else {
                 System.out.println("File already exists.");
             }
@@ -24,28 +26,31 @@ public class CreateFile {
             e.printStackTrace();
         }
 
-        // Write to the file (append 10 random numbers)
-        try {
-            StringBuilder numbers = new StringBuilder();
-            for (int i = 0; i < 10; i++) {
-                numbers.append(randomNumber.nextInt(10) + 1).append(" ");
+        // Write to a file (append mode)
+        try (FileWriter myWriter = new FileWriter("data.file", true)) { 
+            for (int i = 1; i <= 10; i++) {
+                number = randomNumber.nextInt(10) + 1;
+                myWriter.write(number + " "); // Write numbers separated by space
             }
-            numbers.append("\n"); // Add a new line for readability
-
-            Files.write(filePath, numbers.toString().getBytes(), StandardOpenOption.APPEND);
+            myWriter.write("\n"); // Add a new line for readability
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
+
+            myWriter.close();
         }
 
-        // Read from the file and display contents
+        // Read from a file
         try {
-            List<String> lines = Files.readAllLines(filePath);
+            File myFile = new File("data.file");
+            Scanner myReader = new Scanner(myFile);
             System.out.println("\nFile Contents:");
-            for (String line : lines) {
-                System.out.println(line);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
             }
+            myReader.close();
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
             e.printStackTrace();

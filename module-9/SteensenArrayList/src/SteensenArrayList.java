@@ -1,3 +1,6 @@
+//Alisa Steensen
+//Module 9.2 part 1
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,16 +12,16 @@ public class SteensenArrayList {
 
         // ArrayList of 10+ strings
         ArrayList<String> items = new ArrayList<>();
-        items.add("Humpty Dumpty");
-        items.add("Itsy Bitsy Spider");
-        items.add("Mary Had a Little Lamb");
-        items.add("Twinkle Twinkle Little Star");
-        items.add("Jack and Jill");
-        items.add("Baa Baa Black Sheep");
-        items.add("The Wheels on the Bus");
-        items.add("London Bridge is Falling Down");
-        items.add("Ring a Ring o' Roses");
-        items.add("Hickory Dickory Dock");
+        items.add("0. Humpty Dumpty");
+        items.add("1. Itsy Bitsy Spider");
+        items.add("2. Mary Had a Little Lamb");
+        items.add("3. Twinkle Twinkle Little Star");
+        items.add("4. Jack and Jill");
+        items.add("5. Baa Baa Black Sheep");
+        items.add("6. The Wheels on the Bus");
+        items.add("7. London Bridge is Falling Down");
+        items.add("8. Ring a Ring o' Roses");
+        items.add("9. Hickory Dickory Dock");
 
         // Print ArrayList using a for-each loop
         System.out.println("Available Items:");
@@ -28,7 +31,7 @@ public class SteensenArrayList {
 
         // Scanner for user input
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\nEnter the index of the item you want to see again (0-" + (items.size() - 1) + "): ");
+        System.out.print("\nThe Array is numbered 0-9. Please enter the index (number) of the item you want to see again (0-" + (items.size() - 1) + "): ");
 
         try {
             // Read input as String first
