@@ -10,7 +10,7 @@ public class SteensenArrayList {
         // Welcome message
         System.out.println("Welcome to the program.");
 
-        // ArrayList of 10+ strings
+        // ArrayList of 10 strings
         ArrayList<String> items = new ArrayList<>();
         items.add("0. Humpty Dumpty");
         items.add("1. Itsy Bitsy Spider");
