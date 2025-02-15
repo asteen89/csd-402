@@ -26,7 +26,7 @@ public class CreateFile {
             e.printStackTrace();
         }
 
-        // Write to a file (append mode)
+        // Write to a file 
         try (FileWriter myWriter = new FileWriter("data.file", true)) { 
             for (int i = 1; i <= 10; i++) {
                 number = randomNumber.nextInt(10) + 1;
